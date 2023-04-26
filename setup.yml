@@ -1,0 +1,4 @@
+---
+- hosts: 172.31.54.54
+  roles:
+    - apache2
