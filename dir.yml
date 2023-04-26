@@ -1,0 +1,11 @@
+---
+- hosts: 172.31.54.54
+  tasks: 
+  - name: create a directory
+    ansible.builtin.file:
+      path: /opt/vijaya
+      state: directory
+  - name: create a file if not exist
+    ansible.builtin.file:
+      path: /opt/test123
+      state: touch  
