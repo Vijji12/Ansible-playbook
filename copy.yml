@@ -1,0 +1,8 @@
+---
+- hosts: 172.31.54.54
+  tasks:
+  - name: copy file from ansible to node
+    ansible.builtin.copy:
+      src: /root/playbooks/stuff.txt
+      dest: /opt
+
