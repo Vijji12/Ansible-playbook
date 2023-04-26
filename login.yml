@@ -1,0 +1,24 @@
+---
+- hosts: 172.31.54.54
+  tasks:
+  - name: install apach2
+    ansible.builtin.apt:
+      name: apache2
+      state: latest
+  - name: start the apache2
+    ansible.builtin.service:
+      name: apache2
+      state: started
+  - name: change the welcome page
+    ansible.builtin.copy:
+      src: /root/playbooks/index.html
+      dest: /var/www/html
+  - name: change the port number
+    ansible.builtin.template:
+      src: /root/playbooks/ports.conf.j2
+      dest: /etc/apache2/ports.conf
+  - name: start the apache2
+    ansible.builtin.service:
+      name: apache2
+      state: restarted
+   
